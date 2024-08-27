@@ -1,0 +1,27 @@
+
+version: 2
+
+models:
+    - name: dim_cohorts
+      description: "One row per cohort month and country"
+
+    - name: dim_customers
+      description: "Including customers with and without preevious orders"
+      columns:
+          - name: customer_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: fct_sales
+      description: "Including sales data on product and order granularity"
+      columns:
+          - name: order_id
+            description: ""
+            tests:
+                - not_null
+          - name: product_id
+            tests:
+                - not_null
+                    
